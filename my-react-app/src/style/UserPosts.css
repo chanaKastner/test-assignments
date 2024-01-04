@@ -1,0 +1,16 @@
+#NewPostButton{
+    display: inline-block;
+    width: 100%;
+    padding: 10px 16px;
+    margin-bottom: 3%;
+    color: #3d536b;
+    background-color: #e5e8ec;
+    border-radius: 4px;
+    cursor: pointer;
+    text-decoration: none;
+    text-align: left;
+}
+#addButton{
+    background-color: #33445b;
+
+}
