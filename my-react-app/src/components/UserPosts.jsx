@@ -13,7 +13,7 @@ export const UserPost = ({ userId }) => {
     const [loading, setLoading] = useState(true);
     const [showNewPost, setShowNewPost] = useState(false);
     const [count, setCount] = useState(100);
-    const [isOpen, setIsopen] = useState();
+    const [isOpen, setIsOpen] = useState();
 
     useEffect(() => {
         async function fetchData() {
@@ -26,16 +26,19 @@ export const UserPost = ({ userId }) => {
                 console.error(err);
             }
         }
-        setIsopen(true);
+        setIsOpen(true);
         fetchData();
     }, [userId]);
+
     // let users = useSelector((s) => {
     //     return s.users
     // })
     // let currentUser = users.find((x)=>x.id={userId})
+
     //פונקציה לפתיחת וסגירת הדיב עם הפוסטים
     const ToggleSidebar = () => {
-        isOpen === true ? setIsopen(false) : setIsopen(true);
+        isOpen === true ? setIsOpen(false) : setIsOpen(true);
+        setShowNewPost(false)
     }
     //פתיחת הטופס להוספת פוסט
     const onClickNewPost = async () => {
@@ -58,7 +61,7 @@ export const UserPost = ({ userId }) => {
                 {showNewPost && <NewPost userId={userId} updatePosts={updatePosts} setShowNewPost={setShowNewPost} id={count}></NewPost>}
                 {/* הצגת כל הפוסטים של המשתמש שנבחר */}
                 <ul>
-                    {loading ? (<ThreeDots type="ThreeDots" color="rgb(43, 126, 154)" />) :
+                    {loading ? (<ThreeDots type="ThreeDots"/>) :
                         (userPosts.length > 0 ? (
                             userPosts.map((post) =>
                             (<li>
